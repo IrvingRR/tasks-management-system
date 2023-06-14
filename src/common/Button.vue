@@ -2,14 +2,14 @@
     
     export default {
         name: 'Button',
-        props: ['label', 'icon', 'variant', 'radius', 'size']
+        props: ['label', 'icon', 'variant', 'radius', 'size', 'scale']
     }
     
 </script>
 
 <template>
     <button class="button" :class="[variant, radius, size]">
-       <v-icon v-if="icon" :name="icon" size="xs"/>
+       <v-icon v-if="icon" :name="icon" :scale="scale"/>
         {{ label }}
     </button>
 </template>
@@ -21,6 +21,7 @@
         border-radius: 80px;
         display: flex;
         align-items: center;
+        justify-content: center;
         gap: 5px;
         background-color: var(--primary-color);
         color: var(--white-color);

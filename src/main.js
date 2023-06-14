@@ -4,10 +4,10 @@ import { createApp } from 'vue';
 import App from './App.vue';
 import router from './router';
 import { OhVueIcon, addIcons } from "oh-vue-icons";
-import { IoLogoWebComponent, HiSolidPlusCircle, FaChevronDown, FaCircle } from "oh-vue-icons/icons";
+import { IoLogoWebComponent, HiSolidPlusCircle, FaChevronDown, FaCircle, FaTimes } from "oh-vue-icons/icons";
 import { store } from '@/store';
 
-addIcons(IoLogoWebComponent, HiSolidPlusCircle, FaChevronDown, FaCircle);
+addIcons(IoLogoWebComponent, HiSolidPlusCircle, FaChevronDown, FaCircle, FaTimes);
 
 const app = createApp(App);
 

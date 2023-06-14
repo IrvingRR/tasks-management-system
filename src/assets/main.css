@@ -36,6 +36,11 @@ input {
   outline: none;
   transition: var(--transition);
   border-radius: var(--radius);
+  font-size: var(--fs-m);
+}
+
+label {
+  font-size: var(--fs-m);
 }
 
 button,

@@ -21,9 +21,9 @@
                 </span>
             </div>
         </div>
-        <div class="tasks-item-tasks mobile">
-            <span class="tasks-item-task">Css</span>
-            <span class="tasks-item-task">HTML</span>
+        <div class="tasks-item-tags mobile">
+            <span class="tasks-item-tag">Css</span>
+            <span class="tasks-item-tag">HTML</span>
         </div>
     </RouterLink>
 </template>
@@ -86,7 +86,7 @@
         color: var(--status-pending-letter-color);
     }
 
-    .tasks-item-tasks {
+    .tasks-item-tags {
         display: flex;
         flex-wrap: wrap;
         gap: 8px;
@@ -95,7 +95,7 @@
         padding-top: 10px;
     }
 
-    .tasks-item-task {
+    .tasks-item-tag {
         padding: 10px;
         border-radius: var(--radius);
         text-align: center;
