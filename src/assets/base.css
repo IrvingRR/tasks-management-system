@@ -1,0 +1,52 @@
+/* Colors */
+:root {
+
+    --background-primary-color: rgb(20, 22, 37);
+    --background-secondary-color: rgb(31, 33, 58);
+
+    --font-color: rgb(255, 255, 255);
+  
+    --primary-color: rgb(122, 94, 246);
+    --primary-color-hover: rgb(164, 145, 251);
+    --secondary-color: rgb(236, 88, 90);
+    --secondary-color-hover: rgb(251, 137, 139);
+  
+    --status-pending-color: rgba(226, 171, 97, 0.2);
+    --status-completed-color: rgba(48, 208, 155, 0.2);
+  
+    --status-pending-letter-color: rgb(226, 171, 97);
+    --status-completed-letter-color: rgb(140, 217, 191);
+    
+    --black-color: rgb(11, 14, 22);
+    --gray-color: rgb(105, 108, 142);
+    --white-color: rgb(255, 255, 255);
+
+    
+  }
+
+  /* Theme Variables */
+  :root {
+    --background-primary-light: rgb(248, 247, 252);
+    --background-secondary-light: rgb(255, 255, 255);
+    
+    --background-primary-dark: rgb(20, 22, 37);
+    --background-secondary-dark: rgb(31, 33, 58);
+  
+    --font-color-light: rgb(74, 75, 79);
+    --font-color-dark: rgb(246, 246, 248);
+  }
+  
+  /* Other variables */
+  :root {
+    --font: 'Poppins', sans-serif;
+    
+    --fs-xs: 11px;
+    --fs-s: 12px;
+    --fs-m: 13px;
+    --fs-l: 20px;
+    --fs-xl: 30px;
+  
+    --radius: 5px;
+    --initial-border: 1px solid transparent;
+    --transition: 0.3s ease;
+  }

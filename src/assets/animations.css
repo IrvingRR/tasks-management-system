@@ -1,0 +1,14 @@
+/* Transitions */
+@keyframes show-from-up {
+    0% {
+      opacity: 0;
+      visibility: 0;
+      transform: translateY(-50px);
+    }
+  
+    100% {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+}

@@ -1,0 +1,73 @@
+@import './base.css';
+@import './animations.css';
+
+/* Style Normalization */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  line-height: 1.6;
+  font-family: var(--font);
+  background-color: var(--background-primary-color);
+  color: var(--font-color);
+}
+
+a {
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+ul, li {
+  list-style: none;
+}
+
+button,
+select,
+textarea,
+input {
+  border: var(--initial-border);
+  outline: none;
+  transition: var(--transition);
+  border-radius: var(--radius);
+}
+
+button,
+select {
+  cursor: pointer;
+}
+
+img {
+  width: 50px;
+  object-fit: cover;
+}
+
+p {
+  line-height: 23px;
+}
+
+/* Scroll Bar */
+/* width */
+::-webkit-scrollbar {
+  width: 3px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--background-primary-color);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
