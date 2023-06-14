@@ -36,7 +36,7 @@
         align-items: center;
         justify-content: space-between;
         padding: 0 15px 0 0;
-        background-color: var(--background-secondary-dark);
+        background-color: var(--background-secondary-color);
     }
 
     .sidebar-elements {

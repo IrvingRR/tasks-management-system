@@ -36,7 +36,7 @@
         }
 
         .tasks-layout-content {
-            width: 80%;
+            width: 70%;
             margin: auto;
             height: 100vh;
             overflow: auto;
