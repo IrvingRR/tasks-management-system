@@ -30,6 +30,7 @@
         padding: 20px;
     }
 
+    /* Desktop */
     @media only screen and (min-width: 1024px) {
         .tasks-layout {
             flex-direction: row;

@@ -32,7 +32,6 @@
 </script>
 
 <template>
-    <!-- <FormAddTask :isFormModalActived="isFormModalActived" :desactiveFormModal="desactiveFormModal"/> -->
     <Modal :isModalActivated="isModalAcivated" :desactiveModal="desactiveModal">
         <FormAddTask :isModalActivated="isModalAcivated"/>
     </Modal>

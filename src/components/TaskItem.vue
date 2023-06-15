@@ -1,24 +1,22 @@
 <script>
     import { RouterLink } from 'vue-router';
+    import Status from '@/common/Status.vue';
 
     export default {
         name: 'TaskItem',
-        components: { RouterLink }
+        components: { RouterLink, Status }
     }
 </script>
 
 <template>
-    <RouterLink to="/" class="task-item">
+    <RouterLink to="/tasks/8" class="task-item">
         <div class="task-item-header">
             <h3 class="task-item-header-title">Create new feature</h3>
         </div>
         <div class="task-item-body">
             <div class="task-item-information">
                 <p class="task-item-information-date">Due 19 Aug 2021</p>
-                <span class="task-item-information-status pending">
-                    <v-icon name="fa-circle" scale="0.5"/>
-                    Pending
-                </span>
+                <Status status="pending"/>
             </div>
         </div>
         <div class="tasks-item-tags mobile">
@@ -69,28 +67,6 @@
 
     .task-item-information-date {
         color: var(--gray-color);
-    }
-
-    .task-item-information-status {
-        width: 100px;
-        border-radius: var(--radius);
-        padding: 10px 20px;
-        display: flex;
-        align-items: center;
-        gap: 5px;
-        font-size: var(--fs-s);
-    }
-
-    /* Status Completed */
-    .task-item-information-status.completed {
-        background-color: var(--status-completed-color);
-        color: var(--status-completed-letter-color);
-    }
-    
-    /* Status Pending */
-    .task-item-information-status.pending {
-        background-color: var(--status-pending-color);
-        color: var(--status-pending-letter-color);
     }
 
     .tasks-item-tags {

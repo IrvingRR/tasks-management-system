@@ -2,13 +2,12 @@
 
     import Input from '@/common/Input.vue';
     import DropDown from '@/common/DropDown.vue';
-    import Checkbox from '@/common/Checkbox.vue';
     import TextArea from '@/common/TextArea.vue';
     import Button from '@/common/Button.vue';
 
     export default {
         name: 'FormAddTask',
-        components: { Input, DropDown, Checkbox, TextArea, Button },
+        components: { Input, DropDown, TextArea, Button },
         props: ['isModalActivated'],
         data() {
             return {

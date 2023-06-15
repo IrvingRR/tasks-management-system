@@ -13,7 +13,6 @@
             <span class="field-label-required-simbol" v-if="required">*</span>
         </label>
         <div class="field-content">
-            <!-- <v-icon name="co-paw"/> -->
             <input :type="type" :name="name" :placeholder="placeholder" :autocomplete="autoComplete" class="field-content-input">
         </div>
         <div v-if="legend" class="field-legend" :class="isValid === false ? 'show' : ''">{{ legend }}</div>

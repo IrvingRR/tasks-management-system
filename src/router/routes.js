@@ -18,5 +18,14 @@ export const routes = [
       meta: {
         layout: TasksLayout
       }
-    }
+    },
+
+    {
+      path: '/tasks/:id',
+      name: 'task-details',
+      component: () => import('../views/tasks/TaskDetailsView.vue'),
+      meta: {
+        layout: TasksLayout
+      }
+    },
   ]
