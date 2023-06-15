@@ -33,13 +33,19 @@
     .task-item {
         width: 100%;
         border-radius: var(--radius);
-        padding: 20px;
+        padding: 10px;
         background-color: var(--background-secondary-color);
         color: var(--font-color);
         display: flex;
         flex-direction: column;
         gap: 10px;
         border: var(--initial-border);
+        font-size: var(--fs-s);
+    }
+
+    .task-item-header-title {
+        font-size: var(--fs-m);
+        font-weight: normal;
     }
 
     .task-item:hover {
@@ -72,6 +78,7 @@
         display: flex;
         align-items: center;
         gap: 5px;
+        font-size: var(--fs-s);
     }
 
     /* Status Completed */
