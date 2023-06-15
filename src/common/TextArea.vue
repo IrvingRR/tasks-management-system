@@ -1,14 +1,15 @@
 <script>
     export default {
         name: 'TextArea',
-        props: ['name', 'value', 'placeholder', 'label']
+        props: ['label', 'modelValue'],
+        emits: ['update:modelValue'],
     }
 </script>
 
 <template>
     <div class="field" >
-        <label v-if="label" :for="name" class="field-label">{{ label }}</label>
-        <textarea class="field-textarea" :name="name" :placeholder="placeholder" :value="value"/>
+        <label v-if="label" class="field-label">{{ label }}</label>
+        <textarea class="field-textarea" v-bind="$attrs" :value="modelValue" @input="$emit('update:modelValue', $event.target.value)"/>
     </div>
 </template>
 

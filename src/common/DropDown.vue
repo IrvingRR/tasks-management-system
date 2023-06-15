@@ -2,25 +2,30 @@
     
     export default {
         name: 'Dropdown',
-        props: ['label', 'options', 'text', 'required'],
-        computed: {
-            optionsActived() {
-                if(this.isOptionsActive) {
-                    return 'active'
-                } else {
-                    return '';
-                }
-            }
-        },
+        props: ['label', 'options', 'text', 'required', 'modelValue', 'valueOption', 'selectFunction'],
+        emits: ['update:modelValue'],
+
         data() {
             return {
-                isOptionsActive: false
+                isOptionsActive: false,
+                value: ''
             }
         },
 
+        computed: {
+            optionsActived() {
+                if(this.isOptionsActive) return 'active';
+            }
+        },
+        
         methods: {
             toggleOptions() {
                 this.isOptionsActive = !this.isOptionsActive;
+            },
+
+            changeValue(value){
+                this.selectFunction(value);
+                this.value = value;
             }
         }
     }
@@ -33,10 +38,10 @@
             <span class="dropdown-label-simbol">*</span>
         </label>
         <div class="dropdown-content">
-            {{ text }}
+            {{ value ? value : text }}
             <v-icon name="fa-chevron-down" scale="0.8"/>
             <ul class="dropdown-options" :class="[optionsActived]">
-                <li v-for="option of options" :key="`${option.value}-index`" class="dropdown-options-option">
+                <li v-for="option of options" :key="`${option.value}-index`" class="dropdown-options-option" @click="changeValue(option.label)">
                     {{ option.label }}
                 </li>
             </ul>

@@ -2,15 +2,35 @@
 
     import Status from '@/common/Status.vue';
     import Button from '@/common/Button.vue';
+    import Modal from '@/common/Modal.vue';
+    import FormEditTask from '@/components/FormEditTask.vue';
 
     export default {
         name: 'TaskDetailsView',
-        components: { Status, Button }
+        components: { Status, Button, Modal, FormEditTask },
+        data() {
+            return {
+                isModalActivated: false
+            }
+        },
+
+        methods: {
+            activeModal() {
+                this.isModalActivated = true;
+            },
+
+            desactiveModal() {
+                this.isModalActivated = false;
+            }
+        }
     }
 
 </script>
 
 <template>
+    <Modal :isModalActivated="isModalActivated" :desactiveModal="desactiveModal">
+        <FormEditTask :isModalActivated="isModalActivated"/>
+    </Modal>
     <div class="task-details-container">
         <div class="task-details-container-back-action">
             <Button icon="fa-chevron-left" variant="transparent" label="Back" scale="0.8"/>
@@ -21,7 +41,7 @@
                 <Status status="pending"/>
             </div>
             <div class="task-details-header-actions desktop">
-                <Button label="Edit"/>
+                <Button label="Edit" @click="activeModal"/>
                 <Button label="Delete" variant="secondary"/>
             </div>
         </header>
@@ -49,7 +69,7 @@
         <div class="task-details-actions mobile">
             <h4>Actions</h4>
             <div class="task-details-actions-buttons">
-                <Button label="Edit"/>
+                <Button label="Edit" @click="activeModal"/>
                 <Button label="Delete" variant="secondary"/>
             </div>
         </div>

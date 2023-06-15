@@ -2,20 +2,26 @@
 
     export default {
         name: 'Input',
-        props: ['type', 'name', 'placeholder', 'autoComplete', 'isValid', 'label', 'legend', 'required'],
+        props: ['label', 'modelValue', 'isValid', 'isRequired', 'legend'],
+        emits: ['update:modelValue'],
+        computed: {
+            invalidClass() {
+                if(this.isValid === false) return 'invalid-input';
+            }
+        }
     }
 </script>
 
 <template>
     <div class="field" >
-        <label v-if="label" :for="name" class="field-label">
+        <label v-if="label" class="field-label">
             {{ label }} 
-            <span class="field-label-required-simbol" v-if="required">*</span>
+            <span class="field-label-required-simbol" v-if="isRequired">*</span>
         </label>
         <div class="field-content">
-            <input :type="type" :name="name" :placeholder="placeholder" :autocomplete="autoComplete" class="field-content-input">
+            <input v-bind="$attrs" class="field-content-input" :class="invalidClass" :value="modelValue" @input="$emit('update:modelValue', $event.target.value)">
         </div>
-        <div v-if="legend" class="field-legend" :class="isValid === false ? 'show' : ''">{{ legend }}</div>
+        <div v-if="legend" class="field-legend" :class="invalidClass">{{ legend }}</div>
     </div>
 </template>
 
@@ -54,6 +60,11 @@
         color: var(--font-color);
     }
 
+    .field-content-input.invalid-input {
+        border-color: var(--secondary-color);
+        color: var(--secondary-color);
+    }
+
     .field-content-input:focus {
         background-color: transparent;
         border-color: var(--primary-color);
@@ -69,7 +80,7 @@
         height: 0;
     }
     
-    .field-legend.show {
+    .field-legend.invalid-input {
         transform: translateY(0);
         opacity: 1;
         visibility: visible;

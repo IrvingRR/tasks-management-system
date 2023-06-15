@@ -1,5 +1,7 @@
 <script>
 
+    import { mapActions, mapState } from 'vuex';
+
     import Button from '@/common/Button.vue';
     import DropDown from '@/common/DropDown.vue';
     import TasksList from '@/components/TasksList.vue';
@@ -15,25 +17,36 @@
                     { label: 'Completed', value: 'completed' },
                     { label: 'Pending', value: 'pending' }
                 ],
-                isModalAcivated: false
+                isModalActivated: false
             }
         },
 
+        computed: {
+            ...mapState(['tasks'])
+        },  
+
         methods: {
+
+            ...mapActions(['getAllTasksAction']),  
+
             activeModal() {
-                this.isModalAcivated = true;
+                this.isModalActivated = true;
             },
 
             desactiveModal() {
-                this.isModalAcivated = false;
+                this.isModalActivated = false;
             }
-        }
+        },
+
+        async created() {
+            this.getAllTasksAction();
+        }, 
     }
 </script>
 
 <template>
-    <Modal :isModalActivated="isModalAcivated" :desactiveModal="desactiveModal">
-        <FormAddTask :isModalActivated="isModalAcivated"/>
+    <Modal :isModalActivated="isModalActivated" :desactiveModal="desactiveModal">
+        <FormAddTask :isModalActivated="isModalActivated"/>
     </Modal>
     <div class="tasksview-container">
         <header class="tasksview-header">

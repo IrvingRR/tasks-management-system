@@ -1,13 +1,18 @@
 import { createStore } from 'vuex';
 
-// Create a new store instance.
+import { mutations } from './mutations';
+import { actions } from './actions';
+
 export const store = createStore({
   state () {
+
     return {
-      user: { name: 'Irving' }
+      tasks: [],
+      taskSelected: {},
     }
   },
-  mutations: {
-    
-  }
+
+  mutations: mutations,
+
+  actions: actions
 });
