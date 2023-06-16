@@ -33,8 +33,6 @@
 
 <template>
     <div class="dropdown" @click="toggleOptions">
-    {{ this.value }}
-
         <label v-if="label">
             {{ label }}
             <span class="dropdown-label-simbol">*</span>

@@ -1,24 +1,35 @@
 <script>
     export default {
         name: 'Status',
-        props: ['status']
+        props: ['status'],
+        computed: {
+            statusValue() {
+                console.log(this.status);
+                if(this.status === "1") {
+                    return 'Completed'
+                } else {
+                    return 'Pending'
+                }
+            },
+        }
     }
 </script>
 
 <template>
-    <span class="status" :class="[status]">
+    <span class="status" :class="[statusValue.toLowerCase()]">
         <v-icon name="fa-circle" scale="0.5"/>
-        {{ status }}
+        {{ statusValue }}
     </span>
 </template>
 
 <style scoped>
     .status {
-        width: 100px;
+        width: 120px;
         border-radius: var(--radius);
         padding: 10px 20px;
         display: flex;
         align-items: center;
+        justify-content: center;
         gap: 5px;
         font-size: var(--fs-s);
     }

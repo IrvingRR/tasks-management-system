@@ -4,6 +4,7 @@ export const actions =  {
 
     getAllTasksAction: async function({ commit }) {
       const tasks = await getTasksService();
+      console.log(tasks);
       commit('setTasks', tasks);
     },
 

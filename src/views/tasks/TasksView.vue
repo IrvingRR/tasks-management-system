@@ -52,8 +52,8 @@
         <header class="tasksview-header">
             <div class="tasksview-header-information">
                 <h2>Tasks</h2>
-                <p class="mobile">7 total tasks</p>
-                <p class="desktop">There are 7 total tasks</p>
+                <p class="mobile">{{ tasks.length }} total tasks</p>
+                <p class="desktop">There are {{ tasks.length }} total tasks</p>
             </div>
             <div class="tasksview-header-actions">
                 <DropDown class="mobile" text="Filter" :options="filterOptions"/>
@@ -62,7 +62,8 @@
                 <Button class="desktop" label="New task" icon="hi-solid-plus-circle" @click="activeModal"/>
             </div>
         </header>  
-        <TasksList/>
+        <TasksList :v-if="tasks.length > 0"/>
+        <h3 class="tasksview-no-tasks" v-if="tasks.length === 0">No tasks yet</h3>
     </div>
 </template>
 
@@ -90,6 +91,11 @@
 
     .desktop {
         display: none;
+    }
+
+    .tasksview-no-tasks {
+        width: 100%;
+        text-align: center;
     }
 
     /* Tablet */

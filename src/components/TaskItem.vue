@@ -4,24 +4,40 @@
 
     export default {
         name: 'TaskItem',
-        components: { RouterLink, Status }
+        props: ['data'],
+        components: { RouterLink, Status },
+        computed: {
+            tagsArray() {
+                if(this.data.tags) {
+                    return this.data.tags.split(',');
+                }
+            },
+
+            dateDueValue() {
+                if(this.data.due_date) {
+                    return `Date due ${this.data.due_date}`
+                } else {
+                    return 'No due date';
+                }
+            }
+        }
     }
 </script>
 
 <template>
     <RouterLink to="/tasks/8" class="task-item">
         <div class="task-item-header">
-            <h3 class="task-item-header-title">Create new feature</h3>
+            <h3 class="task-item-header-title">{{ data.title }}</h3>
         </div>
         <div class="task-item-body">
             <div class="task-item-information">
-                <p class="task-item-information-date">Due 19 Aug 2021</p>
-                <Status status="pending"/>
+                <p class="task-item-information-date">{{ dateDueValue }}</p>
+                <Status :status="data.is_completed"/>
             </div>
         </div>
         <div class="tasks-item-tags mobile">
-            <span class="tasks-item-tag">Css</span>
-            <span class="tasks-item-tag">HTML</span>
+            <p class="tasks-item-tags-no-tags" v-if="!data.tags">No tags in this task</p>
+            <span v-for="(tag, index) of tagsArray" :key="`${tag}-${index}`" class="tasks-item-tag">{{ tag }}</span>
         </div>
     </RouterLink>
 </template>
@@ -84,6 +100,13 @@
         text-align: center;
         background-color: var(--background-primary-color);
         color: var(--font-color);
+    }
+
+    .tasks-item-tags-no-tags {
+        width: 100%;
+        padding: 10px;
+        border-radius: var(--radius);
+        background-color: var(--background-primary-color);
     }
 
     /* Tablet */
