@@ -7,13 +7,14 @@
         name: 'TasksList',
         components: { TaskItem },
         computed: {
-            ...mapState(['tasks'])
+            ...mapState(['tasks']),
         }
+    
     }
 </script>
 
 <template>
-    <div class="tasks-list">
+    <div class="tasks-list" v-if="tasks.length > 0">
         <TaskItem v-for="task of tasks" :key="task.id" :data="task"/>
     </div>
 </template>

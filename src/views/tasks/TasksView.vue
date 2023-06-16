@@ -38,7 +38,7 @@
             }
         },
 
-        async created() {
+        async mounted() {
             this.getAllTasksAction();
         }, 
     }
