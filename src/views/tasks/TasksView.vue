@@ -46,7 +46,7 @@
 
 <template>
     <Modal :isModalActivated="isModalActivated" :desactiveModal="desactiveModal">
-        <FormAddTask :isModalActivated="isModalActivated"/>
+        <FormAddTask :isModalActivated="isModalActivated" :desactiveModal="desactiveModal"/>
     </Modal>
     <div class="tasksview-container">
         <header class="tasksview-header">

@@ -7,9 +7,10 @@ export const actions =  {
       commit('setTasks', tasks);
     },
 
-    createTaskAction: async function() {
-        // const newTask = await this.createTaskService();
-        createTaskService();
+    createTaskAction: async function({ commit }, task) {
+        const response = await createTaskService(task);
+        commit('addNewTask', response.task);
+        
     }
     
 }

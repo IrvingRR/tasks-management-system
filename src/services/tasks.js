@@ -11,6 +11,7 @@ export const getTasksService = async () => {
         });
 
         const response = await request.json();
+        console.log(response);
         return response;
     } catch (error) {
         console.log(error);
@@ -19,8 +20,17 @@ export const getTasksService = async () => {
 
 export const createTaskService = async (task) => {
     try {
-        
-        console.log('This is the task which we are creating', task);
+        const request = await fetch(URL, {
+            method: 'POST',
+            headers: {
+                authorization: AUTHORIZATION_TOKEN,
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: task
+        });
+
+        const response = await request.json();
+        return response;
 
     } catch (error) {
         console.log(error);
