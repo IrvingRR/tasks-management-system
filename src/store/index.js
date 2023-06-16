@@ -7,7 +7,7 @@ export const store = createStore({
   state () {
 
     return {
-      tasks: JSON.parse(localStorage.getItem('tasks-system-project')) || [],
+      tasks: [],
       taskSelected: {},
     }
   },

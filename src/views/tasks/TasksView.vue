@@ -41,6 +41,7 @@
         async mounted() {
             this.getAllTasksAction();
         }, 
+        
     }
 </script>
 

@@ -4,8 +4,7 @@
         props: ['status'],
         computed: {
             statusValue() {
-                console.log(this.status);
-                if(this.status === "1") {
+                if(this.status == '1') {
                     return 'Completed'
                 } else {
                     return 'Pending'

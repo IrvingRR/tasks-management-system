@@ -8,8 +8,22 @@ export const mutations = {
         state.tasks.push(task);
     },
 
-    setLocalStorage(state) {
-      localStorage.setItem('tasks-system-project', JSON.stringify(state.tasks));
+    setTaskSelected(state, task) {
+      state.taskSelected = task;
+      console.log(state.taskSelected);
+    },
+
+    deleteTask(state, id) {
+      state.taskSelected = {};
+      state.tasks = state.tasks.filter(task => task.id !== id);
+    },
+
+    updateTask(state, task) {
+      state.tasks = state.tasks.map(item => {
+        if(item.id === task.id) {
+          return item = task;
+        };
+      })
     }
 
 }

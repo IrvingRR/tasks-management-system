@@ -25,7 +25,7 @@
 </script>
 
 <template>
-    <RouterLink to="/tasks/8" class="task-item">
+    <RouterLink :to="`/tasks/${data.id}`" class="task-item">
         <div class="task-item-header">
             <h3 class="task-item-header-title">{{ data.title }}</h3>
         </div>

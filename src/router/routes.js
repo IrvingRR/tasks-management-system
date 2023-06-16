@@ -21,7 +21,7 @@ export const routes = [
     },
 
     {
-      path: '/tasks/:id',
+      path: '/tasks/:task_id',
       name: 'task-details',
       component: () => import('../views/tasks/TaskDetailsView.vue'),
       meta: {
