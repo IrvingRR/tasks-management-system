@@ -23,28 +23,5 @@
 </template>
 
 <style scoped>
-    .homeview-container {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        gap: 10px;
-    }
-
-    .homeview-container svg {
-        color: var(--primary-color);
-    }
-
-    .homeview-title {
-        display: flex;
-        align-items: center;
-        font-size: var(--fs-xl);
-    }
-
-    .homeview-description {
-        width: 80%;
-    }
-   
+    @import '@/styles/views/home.css';
 </style>

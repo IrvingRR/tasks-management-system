@@ -23,18 +23,6 @@
 
     
   }
-
-  /* Theme Variables */
-  :root {
-    --background-primary-light: rgb(248, 247, 252);
-    --background-secondary-light: rgb(255, 255, 255);
-    
-    --background-primary-dark: rgb(20, 22, 37);
-    --background-secondary-dark: rgb(31, 33, 58);
-  
-    --font-color-light: rgb(74, 75, 79);
-    --font-color-dark: rgb(246, 246, 248);
-  }
   
   /* Other variables */
   :root {

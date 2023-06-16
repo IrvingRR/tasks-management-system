@@ -1,0 +1,134 @@
+.sidebar {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15px 0 0;
+    background-color: var(--background-secondary-color);
+}
+
+.sidebar-elements {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-right: 1px solid var(--gray-color);
+    height: 100%;
+    padding-right: 20px;
+}
+
+.sidebar-elements-logo {
+    width: 60px;
+    height: 100%;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.sidebar-elements-logo svg {
+    z-index: 99;
+}
+
+.sidebar-elements-logo::before {
+    content: '';
+    width: 100%;
+    height: 50%;
+    background-color: var(--primary-color-hover);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-top-left-radius: 20px;
+}
+
+.sidebar-elements-button {
+    background-color: transparent;
+    color: var(--gray-color);
+}
+
+.sidebar-footer {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 0 15px 15px;
+}
+
+.sidebar-footer-image {
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+}
+
+/* Tablet */
+@media only screen and (min-width: 768px) {
+    .sidebar {
+        padding: 0 20px 0 0;
+    }
+
+    .sidebar-elements button {
+        width: 45px;
+        height: 45px;
+        font-size: var(--fs-m);
+        border-radius: var(--radius);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+    }
+
+    .sidebar-elements-logo {
+        width: 80px;
+    }
+
+    .sidebar-footer {
+        padding: 20px 0 20px 20px;
+    }
+
+    .sidebar-footer-image {
+        width: 45px;
+        height: 45px;
+    }
+}
+
+/* Desktop */
+@media only screen and (min-width: 1024px) {
+    .sidebar {
+        width: 80px;
+        height: 100vh;
+        flex-direction: column;
+        padding: 0 0 15px 0;
+        border-bottom-right-radius: 30px;
+        border-top-right-radius: 15px;
+    }
+
+    .sidebar-elements {
+        width: 100%;
+        height: 100%;
+        flex-direction: column;
+        padding: 0 0 20px 0;
+        border: none;
+        border-bottom: 1px solid var(--gray-color);
+    }
+
+    .sidebar-elements-logo {
+        width: 100%;
+        height: 80px;
+    }
+
+    .sidebar-footer {
+        height: auto;
+        padding: 15px 15px 0 15px;
+    }
+
+    .sidebar-footer-image {
+        width: 30px;
+        height: 30px;
+    }
+}

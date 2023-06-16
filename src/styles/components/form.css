@@ -1,0 +1,95 @@
+.form {
+    width: 100%;
+    height: 100vh;
+    background-color: var(--background-primary-color);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-radius: var(--radius);
+    overflow: auto;
+    transition: var(--transition);
+    transform: translateX(-100%);
+}
+
+.form.active {
+    transform: translateX(0);
+}
+.form-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.form-header-close-button {
+    background-color: transparent;
+    padding: 0;
+}
+
+.form-header-close-button:hover {
+    background-color: transparent;
+}
+
+.form-container.active .form {
+    transform: translateX(0);
+}
+
+.form-add-tasks {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    max-height: 90px;
+    overflow: auto;
+}
+
+.form-tags-tag {
+    padding: 10px;
+    border-radius: var(--radius);
+    text-align: center;
+    background-color: var(--background-secondary-color);
+    color: var(--font-color);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.form-tags-tag-button {
+    width: 10px;
+    height: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius);
+    background-color: var(--white-color);
+    color: var(--background-primary-color);
+    padding: 8px;
+    position: absolute;
+    top: 0;
+    right: -10px;
+    z-index: 99;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.form-tags-tag:hover .form-tags-tag-button {
+    opacity: 1;
+    visibility: visible;
+}
+
+.form-add-tasks-no-tasks-text {
+    color: var(--gray-color);
+}
+
+/* Tablet */
+@media only screen and (min-width: 768px) {
+    .form {
+        width: 400px;
+    }
+}

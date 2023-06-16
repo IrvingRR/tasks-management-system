@@ -1,0 +1,22 @@
+.status {
+    width: 120px;
+    border-radius: var(--radius);
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    font-size: var(--fs-s);
+}
+
+/* Status Completed */
+.status.completed {
+    background-color: var(--status-completed-color);
+    color: var(--status-completed-letter-color);
+}
+
+/* Status Pending */
+.status.pending {
+    background-color: var(--status-pending-color);
+    color: var(--status-pending-letter-color);
+}

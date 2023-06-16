@@ -22,34 +22,5 @@
 </template>
 
 <style scoped>
-    .modal-container {
-        width: 100%;
-        min-height: 100vh;
-        position: fixed;
-        top: 0;
-        left: 0;
-        z-index: 9999;
-        background-color: rgba(0, 0, 0, 0.7);
-        transition: var(--transition);
-        opacity: 0;
-        visibility: hidden;
-    }
-
-    .modal-container button {
-        position: absolute;
-        top: 10px;
-        right: 0;
-        background-color: transparent;
-        z-index: 999;
-    }
-
-    .modal-container button:hover {
-        background-color: transparent;
-    }
-
-    .modal-container.active {
-        transform: translateX(0);
-        opacity: 1;
-        visibility: visible;
-    }
+    @import '@/styles/common/modal.css';
 </style>

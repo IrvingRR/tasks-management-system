@@ -13,10 +13,6 @@
         components: { Button, DropDown, TasksList, FormAddTask, Modal },
         data() {
             return {
-                filterOptions: [
-                    { label: 'Completed', value: 'completed' },
-                    { label: 'Pending', value: 'pending' }
-                ],
                 isModalActivated: false
             }
         },
@@ -57,8 +53,6 @@
                 <p class="desktop">There are {{ tasks.length }} total tasks</p>
             </div>
             <div class="tasksview-header-actions">
-                <DropDown class="mobile" text="Filter" :options="filterOptions"/>
-                <DropDown class="desktop" text="Filter by status" :options="filterOptions"/>
                 <Button class="mobile" label="New" icon="hi-solid-plus-circle" @click="activeModal"/>
                 <Button class="desktop" label="New task" icon="hi-solid-plus-circle" @click="activeModal"/>
             </div>
@@ -69,45 +63,5 @@
 </template>
 
 <style scoped>
-    .tasksview-container {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .tasksview-header {
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 10px;
-    }
-
-    .tasksview-header-actions {
-        display: flex;
-        align-items: center;
-        gap: 20px;
-    }
-
-    .desktop {
-        display: none;
-    }
-
-    .tasksview-no-tasks {
-        width: 100%;
-        text-align: center;
-    }
-
-    /* Tablet */
-    @media only screen and (min-width: 768px) {
-        .mobile {
-            display: none;
-        }
-
-        .desktop {
-            display: block;
-        }
-    }
-
+    @import '@/styles/views/tasksView.css';
 </style>

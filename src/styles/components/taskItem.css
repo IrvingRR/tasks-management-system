@@ -1,0 +1,64 @@
+/* Task Item */
+.task-item {
+    width: 100%;
+    border-radius: var(--radius);
+    padding: 10px;
+    background-color: var(--background-secondary-color);
+    color: var(--font-color);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border: var(--initial-border);
+    font-size: var(--fs-s);
+}
+
+.task-item-header-title {
+    font-size: var(--fs-m);
+    font-weight: normal;
+}
+
+.task-item:hover {
+    transform: translateY(-3px);
+    border-color: var(--primary-color);
+}
+
+.task-item-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.task-item-information {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.task-item-information-date {
+    color: var(--gray-color);
+}
+
+/* Tablet */
+@media only screen and (min-width: 768px) {
+    .mobile {
+        display: none;
+    }
+    .task-item {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .task-item-information {
+        gap: 20px;
+    }
+
+    .task-item-header-title {
+        width: 300px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+}
