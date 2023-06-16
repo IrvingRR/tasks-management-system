@@ -65,6 +65,10 @@
             deleteTask(id) {
                 this.deleteTaskByIdAction(id);
                 this.$router.push('/tasks');
+            },
+
+            backPage() {
+                this.$router.go(-1);
             }
         },
 
@@ -81,7 +85,7 @@
     </Modal>
     <div class="task-details-container">
         <div class="task-details-container-back-action">
-            <Button icon="fa-chevron-left" variant="transparent" label="Back" scale="0.8"/>
+            <Button icon="fa-chevron-left" variant="transparent" label="Back" scale="0.8" @click="backPage"/>
         </div>
         <header class="task-details-header">
             <div class="task-details-header-status">

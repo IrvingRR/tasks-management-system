@@ -1,4 +1,10 @@
 <script>
+    /* 
+    This component handle and show the information of the every task
+    the information is static
+
+    @param {Object} data: This property content the information of the task which will be displayed
+    */
     import { RouterLink } from 'vue-router';
     import Status from '@/common/Status.vue';
 
@@ -7,12 +13,14 @@
         props: ['data'],
         components: { RouterLink, Status },
         computed: {
+            // Transform the tags in array to can iterate in the template
             tagsArray() {
                 if(this.data.tags) {
                     return this.data.tags.split(',');
                 }
             },
 
+            // Handle  the due date value to show a determine value in the template
             dateDueValue() {
                 if(this.data.due_date) {
                     return `Date due ${this.data.due_date}`
@@ -40,5 +48,6 @@
 </template>
 
 <style scoped>
+    /* Get the specific styles of the component */
     @import '@/styles/components/taskItem.css';
 </style>

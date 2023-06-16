@@ -1,5 +1,12 @@
 <script>
 
+      /* 
+    This component handle the current information and execute the http request to update the current task
+    
+    @param {Boolean} isModalActivated: Allow to indicate if the modal component will be show or hidden
+    @param {Fn} desactiveModal: Allow to hidden the modal when is executed
+    */
+
     import { toast } from 'vue3-toastify';
     import Input from '@/common/Input.vue';
     import DropDown from '@/common/DropDown.vue';
@@ -17,6 +24,7 @@
         computed: {
             ...mapState(['taskSelected']),
 
+            // Hanlde the isModalActivated param to apply the correct class
             modalActiveClass() {
                 if(this.isModalActivated) {
                     return 'active';
@@ -26,11 +34,13 @@
 
         data() {
             return {
+                // Options will be show in the dropdown to handle the satus
                 formOptions: [
                     { label: 'Completed', value: "1"},
                     { label: 'Pending', value: "0"}
                 ],
 
+                // Initial values of the every element in the form, this way we avoid the error when the template try to acces to values
                 formValues: {
                     title: { value: '', required: true},
                     is_completed: { value: '', required: true},
@@ -49,15 +59,18 @@
 
             ...mapActions(['updateTaskAction']),
 
+            // This method handle the values and execute the action to update the current task
             handleSubmit() {
                 this.invalidFields = getInvalidFields(this.formValues);
 
+                // If some field is invalid will show a toast with a error message
                 if(this.invalidFields.length > 0) {
                    return toast.error(`Please fill the required fields with the symbol (*): ${this.invalidFields}`, {
                         autoClose: 3000,
                     });
                 }
 
+                //Prepare the data to has the correct format before to send the request
                 const data = prepareData(this.formValues);
                 const params = {
                     id: this.$route.params.task_id,
@@ -69,10 +82,12 @@
                 
             },
 
+            // Function passes as @param selectFunction in the dropdown to handle the value
             changeStatus(status) {
                 this.formValues.is_completed.value = status;
             },
 
+            // Allow to add a new task to property tags of the form values
             addNewTag(tag) {
                 if(tag) {
                     this.formValues.tags.value.push(tag);
@@ -80,14 +95,18 @@
                 }
             },
 
+            // Allow to remove a specific task from property tags of the form values
             removeTag(tag) {
                 this.formValues.tags.value = this.formValues.tags.value.filter(item => item !== tag);
             }
         },    
         
+        // Before the component is mounted we assign the values of the current task to every element of form
         async beforeMount() {
+            // Get information of the current task using the service
             const [currentTask] = await getTaskByIdService(this.$route.params.task_id);
             
+            // Setting the current values
             this.formValues = {
                 title: { value: currentTask.title, required: true},
                 is_completed: { value: currentTask.is_completed, required: true},
@@ -135,5 +154,6 @@
 </template>
 
 <style scoped>
+    /* Get the specific styles of the component */
     @import '@/styles/components/form.css';
 </style>

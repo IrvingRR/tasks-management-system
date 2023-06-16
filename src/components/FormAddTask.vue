@@ -1,13 +1,20 @@
 <script>
 
-    import Input from '@/common/Input.vue';
-    import DropDown from '@/common/DropDown.vue';
-    import TextArea from '@/common/TextArea.vue';
-    import Button from '@/common/Button.vue';
+    /* 
+    This component handle the information and execute the http request to create a new task
+    
+    @param {Boolean} isModalActivated: Allow to indicate if the modal component will be show or hidden
+    @param {Fn} desactiveModal: Allow to hidden the modal when is executed
+    */
+
     import { mapActions } from 'vuex';
     import { toast } from 'vue3-toastify';
     import { getInvalidFields } from '@/helpers/getInvalidFields';
     import { prepareData } from '@/helpers/prepareData';
+    import Input from '@/common/Input.vue';
+    import DropDown from '@/common/DropDown.vue';
+    import TextArea from '@/common/TextArea.vue';
+    import Button from '@/common/Button.vue';
 
     export default {
         name: 'FormAddTask',
@@ -16,11 +23,13 @@
 
         data() {
             return {
+                // Options will be show in the dropdown to handle the satus
                 formOptions: [
                     { label: 'Completed', value: "1"},
                     { label: 'Pending', value: "0"}
                 ],
 
+                // Initial values of the every element in the form
                 formValues: {
                     title: { value: '', required: true},
                     is_completed: { value: '', required: true},
@@ -36,6 +45,7 @@
         },
 
         computed: {
+            // Hanlde the isModalActivated param to apply the correct class
             modalActiveClass() {
                 if(this.isModalActivated) {
                     return 'active';
@@ -45,18 +55,23 @@
 
         methods: {
             ...mapActions(['createTaskAction']),
-
+            
+            // This method handle the values and execute the action to create a new task
             handleSubmit() {
 
                 this.invalidFields = getInvalidFields(this.formValues);
 
+                // If some field is invalid will show a toast with a error message
                 if(this.invalidFields.length > 0) {
                    return toast.error(`Please fill the required fields with the symbol (*): ${this.invalidFields}`, {
                         autoClose: 3000,
                     });
                 }
 
-                const data = prepareData(this.formValues);
+                //Prepare the data to has the correct format before to send the request
+                const data = prepareData(this.formValues); 
+
+                // Execute the  action to send the request, reset the form and hidde the modal
                 this.createTaskAction(data);
                 this.desactiveModal();
                 this.formValues = {
@@ -70,10 +85,12 @@
 
             },
 
+            // Function passes as @param selectFunction in the dropdown to handle the value
             changeStatus(status) {
                 this.formValues.is_completed.value = status;
             },
 
+            // Allow to add a new task to property tags of the form values
             addNewTag(tag) {
                 if(tag) {
                     this.formValues.tags.value.push(tag);
@@ -81,6 +98,7 @@
                 }
             },
 
+            // Allow to remove a specific task from property tags of the form values
             removeTag(tag) {
                 this.formValues.tags.value = this.formValues.tags.value.filter(item => item !== tag);
             }
@@ -119,5 +137,6 @@
 </template>
 
 <style scoped>
+    /* Get the specific styles of the component */
     @import '@/styles/components/form.css';
 </style>

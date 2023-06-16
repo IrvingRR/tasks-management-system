@@ -1,4 +1,12 @@
 <script>
+    /* 
+    Reusable component Modal 
+    Allow to render a modal element with a dynamic content
+
+    @param {Boolean} isModalActivated: Allow handle when the modal will be show or hidden
+    @param {Fn} desactiveModal: Is the funcion which will be called to close the modal when the button is clicked
+    */
+   
     import Button from '../common/Button.vue'
     export default {
         components: { Button },
@@ -22,5 +30,6 @@
 </template>
 
 <style scoped>
+    /* Get the specific styles of the component */
     @import '@/styles/common/modal.css';
 </style>

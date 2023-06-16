@@ -1,3 +1,7 @@
+/*
+  This file content the store which will handle the global state of the application
+*/
+
 import { createStore } from 'vuex';
 
 import { mutations } from './mutations';

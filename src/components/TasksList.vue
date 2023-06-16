@@ -1,5 +1,9 @@
 <script>
+    /* 
+    This component handle all the tasks obtained from API and iterate them
+    render a TaskItem component for every task
 
+    */
     import TaskItem from '@/components/TaskItem.vue';
     import { mapState } from 'vuex';
 
@@ -20,5 +24,6 @@
 </template>
 
 <style scoped>
+    /* Get the specific styles of the component */
     @import '@/styles/components/taskList.css';
 </style>

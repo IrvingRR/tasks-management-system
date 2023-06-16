@@ -1,4 +1,15 @@
 <script>
+    /* 
+    Reusable component Input 
+    Render a component input to handle the value and the appariance of the component depending of the properties and values
+    the attributes are passed dynamically using the value $attrs
+    
+    @param {Boolean} isRequired: Allow indicate ig the component value is required and show a simbol (*)
+    @param {String} label: Text show in a tag label above of the input 
+    @param {String} modelValue: Allow create the conexion between the state value and the component value
+    @param {Boolean} isValid: Allow to handle the apparience of the computed depending of the value, if is invalid the color will change
+    @param {String} legend: Text which will be show under the input as a help message
+    */
 
     export default {
         name: 'Input',
@@ -26,5 +37,6 @@
 </template>
 
 <style scoped>
+    /* Get the specific styles of the component */
     @import '@/styles/common/input.css';
 </style>

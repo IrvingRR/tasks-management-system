@@ -1,4 +1,10 @@
 <script>
+
+    /* 
+    This component show the fake information of user like image and the logo
+    the information is static
+    */
+
     import Button from '@/common/Button.vue';
     import { RouterLink } from 'vue-router';
 
@@ -27,5 +33,6 @@
 </template>
 
 <style scoped>
+    /* Get the specific styles of the component */
    @import '@/styles/components/sidebar.css';
 </style>

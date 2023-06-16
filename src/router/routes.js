@@ -1,5 +1,11 @@
+/*
+These the routes of the application which are used in the router
+every route has a meta property which indicates what is the layout that will be used
+*/
+
 import TasksLayout from '@/layouts/TasksLayout.vue';
 import RootLayout from '@/layouts/RootLayout.vue';
+
 
 export const routes = [
     {

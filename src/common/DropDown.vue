@@ -1,4 +1,15 @@
 <script>
+    /* 
+    Reusable component DropDown 
+    Render a component with multiple options, receive different properties to work
+    
+    @param {Array} options: Is the list of options which will be show in the component when is activated - Example { label: "Option", value: "option" }
+    @param {Boolean} required: Allow indicate ig the component value is required and show a simbol (*) 
+    @param {String} label: Text show in a label tag above of the dropdown 
+    @param {String} text: Text show in the dropdown like placeholder 
+    @param {String} modelValue: Allow create the conexion between the state value and the component value
+    @param {Fn} selectFunction: Function which will be called when an specific option is selected
+    */
     
     export default {
         name: 'Dropdown',
@@ -50,5 +61,6 @@
 </template>
 
 <style scoped>
+    /* Get the specific styles of the component */
     @import '@/styles/common/dropdown.css';
 </style>
